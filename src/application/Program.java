@@ -27,10 +27,16 @@ public class Program {
 		List<Seller> list2 = sellerDao.findAll();
 		list2.forEach(System.out::println);
 		
-		System.out.println("\n--- TEST 4: seller findAll ---");
+		System.out.println("\n--- TEST 4: seller insert ---");
 		Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, dep);
 		sellerDao.insert(newSeller);
 		System.out.println("Inserted! new id = " + newSeller.getId());
+		
+		System.out.println("\n--- TEST 5: seller update ---");
+		newSeller = sellerDao.findById(1);
+		newSeller.setName("Martha Waine");
+		sellerDao.update(newSeller);
+		System.out.println("Update Complete");
 	
 		
 	}
